@@ -9,7 +9,7 @@ import br.com.fiap.androidfinalprojeto.view.main.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
-    private val timeSplash = 3500L
+    private val timeSplash = 4000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
