@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.splash.SplashActivity" android:background="@color/colorPrimary">
+        tools:context=".view.splash.SplashActivity" android:background="@drawable/background">
 
     <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animation_view"
@@ -13,26 +13,24 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:lottie_fileName="load_cam.json"
-            app:lottie_autoPlay="true"/>
+            app:lottie_fileName="load.json"
+            app:lottie_autoPlay="true" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"/>
 
     <TextView
             android:text="Myovie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView2"
-            app:layout_constraintBottom_toTopOf="@+id/animation_view"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:textSize="86sp" android:textStyle="bold" android:fontFamily="@font/kalam_bold"
-            android:textColor="@color/colorAccentDark" android:layout_marginTop="32dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"/>
+            android:textColor="@color/icons_text"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.06999999"/>
     <TextView
             android:text="Desenvolvido por ARR."
             android:layout_width="wrap_content"
@@ -40,6 +38,7 @@
             android:id="@+id/textView"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:textSize="18sp" android:layout_marginBottom="8dp"/>
+            android:textSize="18sp" android:layout_marginBottom="16dp" app:layout_constraintHorizontal_bias="0.087"
+            android:textColor="@color/icons_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
