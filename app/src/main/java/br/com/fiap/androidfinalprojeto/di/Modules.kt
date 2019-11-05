@@ -2,13 +2,14 @@ package br.com.fiap.androidfinalprojeto.di
 
 import androidx.room.Room
 import br.com.fiap.androidfinalprojeto.dao.MyMovieDatabase
-import br.com.fiap.androidfinalprojeto.repository.UserRepository
+import br.com.fiap.androidfinalprojeto.repository.MovieRepository
+import br.com.fiap.androidfinalprojeto.view.main.MovieViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val repositoryModule = module {
     single {
-        UserRepository(get())
+        MovieRepository(get())
     }
 }
 
@@ -21,15 +22,17 @@ val dbModule = module {
     }
 
     single {
-        get<MyMovieDatabase>().userDao()
+        get<MyMovieDatabase>().movieDao()
     }
+
+}
+
+
+val viewModelModule = module {
+    viewModel { MovieViewModel(get(), get()) }
 }
 
 /*
-val viewModelModule = module {
-    viewModel { MainViewModel(get(), get()) }
-}
-
 val uiModule = module {
     factory { WordListAdapter(get()) }
 }

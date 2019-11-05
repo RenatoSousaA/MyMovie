@@ -14,5 +14,23 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="CustomButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/primary</item>
+        <item name="android:background">@drawable/rounded_button</item>
+    </style>
+
+    <style name="CustomInput">
+        <item name="android:textColorHint">#BBB</item>
+        <item name="android:background">@drawable/custom_edittext</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="CustomLabel">
+        <item name="android:textColor">@color/primary_text</item>
+    </style>
 
 </resources>

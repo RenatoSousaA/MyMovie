@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import br.com.fiap.androidfinalprojeto.model.User
+import androidx.room.TypeConverters
+import br.com.fiap.androidfinalprojeto.model.Movie
+import br.com.fiap.androidfinalprojeto.util.Converters
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [Movie::class], version = 1)
+@TypeConverters(Converters::class)//Necessário para utilização do tipo complexo date nos models
 public abstract class MyMovieDatabase : RoomDatabase() {
 
-    abstract fun userDao(): UserDao
+    abstract fun movieDao(): MovieDao
 
     companion object {
         @Volatile
