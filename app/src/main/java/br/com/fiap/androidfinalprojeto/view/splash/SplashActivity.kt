@@ -6,11 +6,8 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.animation.AnimationUtils
 import br.com.fiap.androidfinalprojeto.R
 import br.com.fiap.androidfinalprojeto.view.login.LoginActivity
-import br.com.fiap.androidfinalprojeto.view.main.MainActivity
-import br.com.fiap.androidfinalprojeto.view.signup.SignupActivity
 
 class SplashActivity : AppCompatActivity() {
 

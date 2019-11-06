@@ -33,4 +33,13 @@
         <item name="android:textColor">@color/primary_text</item>
     </style>
 
+    <style name="FullScreen.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="FullScreen.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="FullScreen.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>
