@@ -3,7 +3,7 @@ package br.com.fiap.androidfinalprojeto.di
 import androidx.room.Room
 import br.com.fiap.androidfinalprojeto.dao.MyMovieDatabase
 import br.com.fiap.androidfinalprojeto.repository.MovieRepository
-import br.com.fiap.androidfinalprojeto.view.main.MovieViewModel
+import br.com.fiap.androidfinalprojeto.view.movie.MovieViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

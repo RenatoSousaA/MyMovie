@@ -1,4 +1,4 @@
-package br.com.fiap.androidfinalprojeto.view.main
+package br.com.fiap.androidfinalprojeto.view.movie
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
