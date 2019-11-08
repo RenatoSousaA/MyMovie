@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <solid
+                    android:color="@color/custom_button_pressed"/>
+            <stroke
+                    android:width="@dimen/rounded_button_stroke_width"
+                    android:color="@color/custom_button_pressed"/>
+            <corners
+                    android:radius="@dimen/rounded_button_radius"/>
+            <padding
+                    android:left="@dimen/rounded_button_padding"
+                    android:top="@dimen/rounded_button_padding"
+                    android:right="@dimen/rounded_button_padding"
+                    android:bottom="@dimen/rounded_button_padding"/>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid
+                    android:color="@color/custom_button"/>
+
+            <stroke
+                    android:width="@dimen/rounded_button_stroke_width"
+                    android:color="@color/custom_button"/>
+            <corners
+                    android:radius="@dimen/rounded_button_radius"/>
+            <padding
+                    android:left="@dimen/rounded_button_padding"
+                    android:top="@dimen/rounded_button_padding"
+                    android:right="@dimen/rounded_button_padding"
+                    android:bottom="@dimen/rounded_button_padding"/>
+        </shape>
+    </item>
+</selector>
