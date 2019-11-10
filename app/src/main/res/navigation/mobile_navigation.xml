@@ -40,4 +40,11 @@
             android:name="br.com.fiap.androidfinalprojeto.view.main.ui.send.SendFragment"
             android:label="@string/menu_send"
             tools:layout="@layout/fragment_send" />
+
+    <fragment
+            android:id="@+id/nav_about"
+            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.about.AboutFragment"
+            android:label="@string/menu_about"
+            tools:layout="@layout/fragment_about" />
+
 </navigation>
