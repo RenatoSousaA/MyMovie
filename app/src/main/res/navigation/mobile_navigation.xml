@@ -14,19 +14,19 @@
     <fragment
             android:id="@+id/nav_gallery"
             android:name="br.com.fiap.androidfinalprojeto.view.main.ui.gallery.GalleryFragment"
-            android:label="@string/menu_gallery"
+            android:label="@string/menu_new_movie"
             tools:layout="@layout/fragment_gallery" />
 
     <fragment
             android:id="@+id/nav_slideshow"
             android:name="br.com.fiap.androidfinalprojeto.view.main.ui.slideshow.SlideshowFragment"
-            android:label="@string/menu_slideshow"
+            android:label="@string/menu_maps"
             tools:layout="@layout/fragment_slideshow" />
 
     <fragment
             android:id="@+id/nav_tools"
             android:name="br.com.fiap.androidfinalprojeto.view.main.ui.tools.ToolsFragment"
-            android:label="@string/menu_tools"
+            android:label="@string/menu_all_movies"
             tools:layout="@layout/fragment_tools" />
 
     <fragment
