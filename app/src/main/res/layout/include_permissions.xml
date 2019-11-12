@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/containerPermission"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:orientation="vertical"
+              android:paddingLeft="32dp"
+              android:paddingRight="32dp">
+
+    <TextView
+            android:id="@+id/tvTitleDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            tools:text="Required Permission"/>
+
+    <TextView
+            android:id="@+id/tvMessageDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:minWidth="820dp"
+            android:padding="8dp"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            tools:text="We need to have access to your device's camera to scan QRCode."/>
+
+    <Button
+            android:id="@+id/btPermission"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="32dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="Enable permission"
+            android:textColor="#FF5722"/>
+</LinearLayout>

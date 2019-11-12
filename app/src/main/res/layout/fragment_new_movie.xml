@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+                                                       android:layout_height="match_parent">
+
+        <TextView
+                android:id="@+id/text_new_movie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/menu_new_movie"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+        <RatingBar
+                android:id="@+id/rating_bar"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_view"/>
+        <CalendarView
+                android:id="@+id/calendar_view"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie" app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/et_plataform"/>
+        <Button
+                android:id="@+id/bt_add"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:text="Add movie"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/rating_bar"/>
+        <EditText
+                android:id="@+id/et_category"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Movie category"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie" app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/et_name_movie2"/>
+        <EditText
+                android:id="@+id/et_name_movie2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp" android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Movie name"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/text_new_movie"/>
+        <EditText
+                android:id="@+id/et_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp" android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Movie description"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/et_category"/>
+        <EditText
+                android:id="@+id/et_plataform"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Movie plataform watching"
+                android:inputType="textMultiLine"
+                app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
+                app:layout_constraintHorizontal_bias="1.0" app:layout_constraintStart_toStartOf="@+id/text_new_movie"
+                app:layout_constraintTop_toBottomOf="@+id/et_description"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
