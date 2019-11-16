@@ -30,7 +30,6 @@ class LoginActivity : AppCompatActivity() {
             goToHome()
         }
 
-
         validarPermissoes(permissoes, this, 1)
 
         btLogin.setOnClickListener {

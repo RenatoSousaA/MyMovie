@@ -11,6 +11,7 @@ import br.com.fiap.androidfinalprojeto.view.main.ui.all_movie.AllMoviesFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.lang.Exception
 import java.util.*
+import br.com.fiap.androidfinalprojeto.util.EditTextUtil.Companion.validate
 
 class MovieFragment : Fragment() {
 
@@ -56,6 +57,11 @@ class MovieFragment : Fragment() {
         btMovieSave.setOnClickListener() {
             try {
 
+                //Valida campos obrigatórios, via extension
+                etMovieName.validate(activity)
+                etMovieCategory.validate(activity)
+                etMovieDisplayPlataform.validate(activity)
+
                 val movie = movieViewModel.movie
                 movie.name = etMovieName.text.toString()
                 movie.description = etMovieDescription.text.toString()
@@ -74,14 +80,11 @@ class MovieFragment : Fragment() {
                 args.putLong(AllMoviesFragment.EXTRA_MOVIEID, movie.id)
                 f.arguments = args
 
-                //Troca de fragmento - Rever
-                /*
+                //Troca de fragmento
                 val ft = fragmentManager?.beginTransaction()
-                ft?.replace(R.id.placeholder, f)
+                ft?.replace(R.id.nav_host_fragment, f)
                 ft?.addToBackStack(null)
                 ft?.commit()
-                */
-
 
             } catch (ex: Exception) {
                 Toast.makeText(getActivity(),ex.message, Toast.LENGTH_LONG).show()

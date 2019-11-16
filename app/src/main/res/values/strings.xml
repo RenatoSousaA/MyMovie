@@ -46,4 +46,13 @@
     <string name="Add">Add</string>
     <string name="movie_added">Movie added!</string>
     <string name="item_not_found">Item not found!</string>
+    <string name="field_must_be_completed">Field must be completed.</string>
+    <string name="is_required">is required</string>
+    <string name="movie_category">Movie category</string>
+    <string name="movie_name">Movie name</string>
+    <string name="movie_description">Movie description</string>
+    <string name="movie_plataform_watching">Movie plataform watching</string>
+    <string name="label_confirm_password">Confirm password</string>
+    <string name="passwords_do_not_match">Passwords do not match!</string>
+    <string name="signup_success">Signup success!</string>
 </resources>
