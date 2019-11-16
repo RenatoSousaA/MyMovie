@@ -19,7 +19,7 @@ class MovieViewModel(application: Application, private val movieRepository: Movi
         val auxMovie = movieRepository.allMovies.value?.filter { it.id == id }?.firstOrNull()
         if(auxMovie==null)
             throw  Exception(Resources.getSystem().getString(R.string.item_not_found))
-        movie = movie
+        movie = auxMovie
     }
 
     fun saveChanges() = viewModelScope.launch(Dispatchers.IO) {
