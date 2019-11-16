@@ -16,31 +16,15 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
 import android.text.method.TextKeyListener.clear
+import br.com.fiap.androidfinalprojeto.view.login.LoginActivity
 
 class ExitFragment : Fragment() {
 
-    private lateinit var exitViewModel: ExitViewModel
-
-    private lateinit var mAuth: FirebaseAuth
+    //private lateinit var exitViewModel: ExitViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //Finaliza somente depois do token destroido
-        mAuth = FirebaseAuth.getInstance()
-        mAuth.addAuthStateListener { firebaseAuth ->
-            if (firebaseAuth.currentUser == null) {
-                finish()
-            }
-        }
-
-        //Desloga e limpa preferencias
         signOut()
-
-    }
-
-    private fun finish() {
-        System.exit(0)
     }
 
     private fun signOut() {
@@ -52,7 +36,12 @@ class ExitFragment : Fragment() {
         editor.commit()
 
         //Desloga firebase
-        mAuth.signOut()
+        FirebaseAuth.getInstance().signOut()
+
+        //Redireciona para o login
+        val intent = Intent(activity, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)//Fecha todas as activities ativas e coloca esta no lugar
+        startActivity(intent)
 
     }
 }

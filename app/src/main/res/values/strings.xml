@@ -55,4 +55,5 @@
     <string name="label_confirm_password">Confirm password</string>
     <string name="passwords_do_not_match">Passwords do not match!</string>
     <string name="signup_success">Signup success!</string>
+    <string name="signup_success">Signup success!</string>
 </resources>
