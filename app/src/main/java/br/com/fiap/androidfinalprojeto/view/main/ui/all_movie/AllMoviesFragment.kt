@@ -28,4 +28,8 @@ class AllMoviesFragment : Fragment() {
         })
         return root
     }
+
+    companion object {
+        const val EXTRA_MOVIEID = "br.com.fiap.androidfinalprojeto.allmoviesfragment.EXTRA_MOVIEID"
+    }
 }

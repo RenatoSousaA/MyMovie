@@ -24,23 +24,23 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"/>
         <RatingBar
-                android:id="@+id/rating_bar"
+                android:id="@+id/rbMovieScore"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
                 app:layout_constraintStart_toStartOf="@+id/text_new_movie"
-                app:layout_constraintTop_toBottomOf="@+id/calendar_view"/>
+                app:layout_constraintTop_toBottomOf="@+id/cvMovieDisplayDate"/>
         <CalendarView
-                android:id="@+id/calendar_view"
+                android:id="@+id/cvMovieDisplayDate"
                 android:layout_width="0dp" android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie" app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/et_plataform"/>
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/etMovieDisplayPlataform"/>
         <Button
-                android:id="@+id/bt_add"
+                android:id="@+id/btMovieSave"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
@@ -48,9 +48,9 @@
                 android:text="Add movie"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
-                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/rating_bar"/>
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/rbMovieScore"/>
         <EditText
-                android:id="@+id/et_category"
+                android:id="@+id/etMovieCategory"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -60,9 +60,9 @@
                 android:hint="Movie category"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie" app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/et_name_movie2"/>
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/etMovieName"/>
         <EditText
-                android:id="@+id/et_name_movie2"
+                android:id="@+id/etMovieName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -73,7 +73,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
                 app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/text_new_movie"/>
         <EditText
-                android:id="@+id/et_description"
+                android:id="@+id/etMovieDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -83,9 +83,9 @@
                 android:hint="Movie description"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
-                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/et_category"/>
+                app:layout_constraintStart_toStartOf="@+id/text_new_movie" app:layout_constraintTop_toBottomOf="@+id/etMovieCategory"/>
         <EditText
-                android:id="@+id/et_plataform"
+                android:id="@+id/etMovieDisplayPlataform"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -97,7 +97,7 @@
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="@+id/text_new_movie"
                 app:layout_constraintHorizontal_bias="1.0" app:layout_constraintStart_toStartOf="@+id/text_new_movie"
-                app:layout_constraintTop_toBottomOf="@+id/et_description"/>
+                app:layout_constraintTop_toBottomOf="@+id/etMovieDescription"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

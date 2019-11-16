@@ -42,4 +42,8 @@
     <string name="title_code_qr">Read the QR Code to access the movie</string>
     <string name="obs_code_qr">Position the camera in front of the code.</string>
     <string name="text_loading">Loading</string>
+    <string name="Update">Update</string>
+    <string name="Add">Add</string>
+    <string name="movie_added">Movie added!</string>
+    <string name="item_not_found">Item not found!</string>
 </resources>

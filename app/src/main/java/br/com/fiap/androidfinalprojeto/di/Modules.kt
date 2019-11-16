@@ -1,9 +1,9 @@
 package br.com.fiap.androidfinalprojeto.di
 
 import androidx.room.Room
-import br.com.fiap.androidfinalprojeto.dao.MyMovieDatabase
-import br.com.fiap.androidfinalprojeto.repository.MovieRepository
-import br.com.fiap.androidfinalprojeto.view.movie.MovieViewModel
+import br.com.fiap.androidfinalprojeto.room.dao.MyMovieDatabase
+import br.com.fiap.androidfinalprojeto.room.repository.MovieRepository
+import br.com.fiap.androidfinalprojeto.view.main.ui.movie.MovieViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -14,10 +14,12 @@ val repositoryModule = module {
 }
 
 val dbModule = module {
+
     single {
         Room.databaseBuilder (
             get(),
-            MyMovieDatabase::class.java,"MyMovieDatabase"
+            MyMovieDatabase::class.java,
+            "MyMovieDatabase"
         ).build()
     }
 
@@ -27,9 +29,8 @@ val dbModule = module {
 
 }
 
-
 val viewModelModule = module {
-    viewModel { MovieViewModel(get(), get()) }
+    viewModel { MovieViewModel (get(), get()) }
 }
 
 /*
