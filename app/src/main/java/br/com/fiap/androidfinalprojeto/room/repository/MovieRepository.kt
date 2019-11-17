@@ -1,9 +1,9 @@
-package br.com.fiap.androidfinalprojeto.repository
+package br.com.fiap.androidfinalprojeto.room.repository
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import br.com.fiap.androidfinalprojeto.dao.MovieDao
-import br.com.fiap.androidfinalprojeto.model.Movie
+import br.com.fiap.androidfinalprojeto.room.dao.MovieDao
+import br.com.fiap.androidfinalprojeto.room.model.Movie
 
 class MovieRepository(private val movieDao: MovieDao) {
 

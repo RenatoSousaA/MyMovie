@@ -8,18 +8,40 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import br.com.fiap.androidfinalprojeto.R
+import com.google.firebase.auth.FirebaseAuth
+import androidx.annotation.NonNull
+import android.R
+import br.com.fiap.androidfinalprojeto.view.main.MainActivity
+import android.content.Intent
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
+import android.text.method.TextKeyListener.clear
+import br.com.fiap.androidfinalprojeto.view.login.LoginActivity
 
 class ExitFragment : Fragment() {
 
-    private lateinit var exitViewModel: ExitViewModel
+    //private lateinit var exitViewModel: ExitViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        finish()
+        signOut()
     }
 
-    private fun finish() {
-        System.exit(0)
+    private fun signOut() {
+
+        //Limpa as preferencias do usuario
+        val p = PreferenceManager.getDefaultSharedPreferences(activity)
+        val editor = p.edit()
+        editor.clear()
+        editor.commit()
+
+        //Desloga firebase
+        FirebaseAuth.getInstance().signOut()
+
+        //Redireciona para o login
+        val intent = Intent(activity, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)//Fecha todas as activities ativas e coloca esta no lugar
+        startActivity(intent)
+
     }
 }

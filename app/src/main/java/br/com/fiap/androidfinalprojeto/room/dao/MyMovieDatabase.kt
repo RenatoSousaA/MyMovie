@@ -1,11 +1,11 @@
-package br.com.fiap.androidfinalprojeto.dao
+package br.com.fiap.androidfinalprojeto.room.dao
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import br.com.fiap.androidfinalprojeto.model.Movie
+import br.com.fiap.androidfinalprojeto.room.model.Movie
 import br.com.fiap.androidfinalprojeto.util.Converters
 
 @Database(entities = [Movie::class], version = 1)
@@ -15,6 +15,7 @@ public abstract class MyMovieDatabase : RoomDatabase() {
     abstract fun movieDao(): MovieDao
 
     companion object {
+
         @Volatile
         private var INSTANCE: MyMovieDatabase? = null
 

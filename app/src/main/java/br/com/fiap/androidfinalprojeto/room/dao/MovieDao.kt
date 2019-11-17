@@ -1,8 +1,8 @@
-package br.com.fiap.androidfinalprojeto.dao
+package br.com.fiap.androidfinalprojeto.room.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import br.com.fiap.androidfinalprojeto.model.Movie
+import br.com.fiap.androidfinalprojeto.room.model.Movie
 
 @Dao
 interface MovieDao {
