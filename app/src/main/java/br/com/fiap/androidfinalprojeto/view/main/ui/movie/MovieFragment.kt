@@ -27,6 +27,7 @@ class MovieFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_new_movie, container, false)
 
         //Carrega itens do layout
+        val title = root.findViewById<TextView>(R.id.text_new_movie)
         val btMovieSave = root.findViewById<Button>(R.id.btMovieSave)
         val etMovieName = root.findViewById<EditText>(R.id.etMovieName)
         val etMovieDescription = root.findViewById<EditText>(R.id.etMovieDescription)
@@ -35,12 +36,14 @@ class MovieFragment : Fragment() {
         val rbMovieScore = root.findViewById<RatingBar>(R.id.rbMovieScore)
         val cvMovieDisplayDate = root.findViewById<CalendarView>(R.id.cvMovieDisplayDate)
 
-        //Checa modo do fragmento, add ou up
+        //Checa modo do fragmento, add ou edit
+        title.setText(R.string.new_movie)
         btMovieSave.setText(R.string.Add)
         if(arguments !=null){
             val id: Long? = arguments?.getLong(EXTRA_MOVIEID);
             if(id!=null && id>0) {
                 movieViewModel.loadMovie(id)
+                title.setText(R.string.edit_movie)
                 btMovieSave.setText(R.string.Update)
             }
         }
@@ -72,7 +75,7 @@ class MovieFragment : Fragment() {
                 movieViewModel.saveChanges()
 
                 //Avisa usuário
-                Toast.makeText(getActivity(), R.string.movie_added, Toast.LENGTH_LONG).show()
+                Toast.makeText(getActivity(), R.string.movie_saved, Toast.LENGTH_LONG).show()
 
                 //Redireciona para lista de movies
                 val f: Fragment = AllMoviesFragment()
