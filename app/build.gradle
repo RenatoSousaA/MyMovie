@@ -26,6 +26,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "androidfinalprojeto"
+    productFlavors {
+        regular {
+        }
+        blue {
+            applicationIdSuffix ".blue"
+            versionCode 1
+            versionName "1.0.0"
+        }
+    }
 }
 
 /*
