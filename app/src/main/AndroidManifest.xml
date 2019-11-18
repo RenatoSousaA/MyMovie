@@ -10,15 +10,15 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
     <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <uses-feature
             android:name="android.hardware.camera"
-            android:required="true" />
+            android:required="true"/>
 
     <uses-feature
             android:name="android.hardware.camera.autofocus"
-            android:required="false" />
+            android:required="false"/>
 
     <uses-feature
             android:glEsVersion="0x00020000"
@@ -34,14 +34,21 @@
             android:theme="@style/FullScreen">
         <activity android:name=".view.scan.ScanActivity">
         </activity>
-        <!--
-             The API key for Google Maps-based APIs is defined as a string resource.
-             (See the file "res/values/google_maps_api.xml").
-             Note that the API key is linked to the encryption key used to sign the APK.
-             You need a different API key for each encryption key, including the release key that is used to
-             sign the APK for publishing.
-             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
+
+        <service
+                android:name=".MyFirebaseInstanceIdService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+                android:name=".MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="@string/google_maps_key"/>
