@@ -11,10 +11,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import br.com.fiap.androidfinalprojeto.R
 import br.com.fiap.androidfinalprojeto.view.BaseScanActivity
+import br.com.fiap.androidfinalprojeto.view.main.MainActivity
+import br.com.fiap.androidfinalprojeto.view.main.ui.all_movie.AllMoviesFragment
+import br.com.fiap.androidfinalprojeto.view.main.ui.home.HomeFragment
 import com.google.zxing.Result
 import kotlinx.android.synthetic.main.activity_scan.*
+import kotlinx.android.synthetic.main.fragment_new_movie.*
 import kotlinx.android.synthetic.main.include_permissions.*
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
@@ -65,5 +70,15 @@ class ScanActivity : BaseScanActivity(), ZXingScannerView.ResultHandler {
 //        startActivity(intent)
 //        finish()
         //baseScannerView?.resumeCameraPreview(this)
+
+        val movieName = rawResult?.text
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("SCAN_NAME", movieName)
+        startActivity(intent)
+        finish()
+    }
+
+    companion object {
+        const val EXTRA_MOVIEID = "br.com.fiap.androidfinalprojeto.newmoviewfragment.EXTRA_MOVIEID"
     }
 }
