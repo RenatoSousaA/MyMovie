@@ -18,12 +18,14 @@ import br.com.fiap.androidfinalprojeto.view.main.ui.movie.MovieFragment
 import br.com.fiap.androidfinalprojeto.view.main.ui.movie.MovieViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import androidx.recyclerview.widget.ItemTouchHelper
+import br.com.fiap.androidfinalprojeto.room.repository.MovieRepository
 import br.com.fiap.androidfinalprojeto.util.EditTextUtil.Companion.validate
 import com.google.android.material.snackbar.Snackbar
 import br.com.fiap.androidfinalprojeto.util.SwipeToDeleteCallback
 import br.com.fiap.androidfinalprojeto.view.main.MainActivity
 import kotlinx.android.synthetic.main.all_movies_recyclerview.*
 import kotlinx.android.synthetic.main.all_movies_recyclerview.view.*
+import kotlinx.android.synthetic.main.fragment_all_movies.*
 import kotlinx.android.synthetic.main.fragment_all_movies.view.*
 import java.lang.Exception
 import java.util.*
@@ -33,6 +35,7 @@ class AllMoviesFragment : Fragment() {
     //Usando Koin para injetar dependencia
     private val movieViewModel: MovieViewModel by viewModel()
     private lateinit var adapter: AllMoviesListAdapter
+    private lateinit var movieRepository: MovieRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +55,28 @@ class AllMoviesFragment : Fragment() {
         //Observer
         movieViewModel.allMovies.observe(this, Observer { movies ->
             // Update the cached copy of the movies in the adapter
-            movies?.let { adapter.setMovies(it) }
+
+            val name: String? = arguments?.getString(EXTRA_MOVIEID)
+
+            if (name != "") {
+                var moviesFilter = movies.filter { it.name.toLowerCase().contains(name?.toLowerCase() ?: "")}
+                moviesFilter?.let { adapter.setMovies(it) }
+
+                if (moviesFilter.count() == 0) {
+                    tv_notFound.visibility = View.VISIBLE
+                } else {
+                    tv_notFound.visibility = View.INVISIBLE
+                }
+            } else {
+                movies?.let { adapter.setMovies(it) }
+
+                if (movies.count() == 0) {
+                    tv_notFound.visibility = View.VISIBLE
+                } else {
+                    tv_notFound.visibility = View.INVISIBLE
+                }
+            }
+
         })
 
         enableSwipeToDeleteAndUndo(recyclerview)

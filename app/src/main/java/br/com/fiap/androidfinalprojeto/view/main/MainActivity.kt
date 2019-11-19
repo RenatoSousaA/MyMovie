@@ -2,6 +2,7 @@ package br.com.fiap.androidfinalprojeto.view.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.findNavController
@@ -13,7 +14,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import br.com.fiap.androidfinalprojeto.R
+import br.com.fiap.androidfinalprojeto.view.main.ui.all_movie.AllMoviesFragment
+import br.com.fiap.androidfinalprojeto.view.main.ui.home.HomeFragment
+import br.com.fiap.androidfinalprojeto.view.scan.ScanActivity
 import com.google.firebase.database.BuildConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
@@ -38,6 +43,12 @@ class MainActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
+
+        val nameMovie: String? = intent.getStringExtra("SCAN_NAME")
+
+        if (nameMovie != "" && nameMovie != null) {
+            EXTRA_MOVIEID = nameMovie
+        }
 
         navView.checkedItem
 
@@ -88,6 +99,10 @@ class MainActivity : AppCompatActivity() {
                 navTitle.text = titleNavigation
                 navSubTitle.text = subtitleNavigation
             }
+    }
+
+    companion object {
+        var EXTRA_MOVIEID = ""
     }
 
 }

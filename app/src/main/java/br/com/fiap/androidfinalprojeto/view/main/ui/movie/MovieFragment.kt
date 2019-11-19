@@ -40,7 +40,7 @@ class MovieFragment : Fragment() {
         title.setText(R.string.new_movie)
         btMovieSave.setText(R.string.Add)
         if(arguments !=null){
-            val id: Long? = arguments?.getLong(EXTRA_MOVIEID);
+            val id: Long? = arguments?.getLong(EXTRA_MOVIEID)
             if(id!=null && id>0) {
                 movieViewModel.loadMovie(id)
                 title.setText(R.string.edit_movie)
