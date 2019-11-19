@@ -10,9 +10,11 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
+import androidx.core.view.marginTop
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.androidfinalprojeto.R
+import kotlinx.android.synthetic.main.all_movies_recyclerview.view.*
 
 abstract class SwipeToDeleteCallback internal constructor(internal var mContext: Context) :
 
@@ -24,6 +26,8 @@ abstract class SwipeToDeleteCallback internal constructor(internal var mContext:
     private val deleteDrawable: Drawable
     private val intrinsicWidth: Int
     private val intrinsicHeight: Int
+    private val marginTop: Int
+    private val heightCardMovie: Int
 
     init {
 
@@ -34,6 +38,8 @@ abstract class SwipeToDeleteCallback internal constructor(internal var mContext:
         deleteDrawable = ContextCompat.getDrawable(mContext, R.drawable.ic_delete)!!
         intrinsicWidth = deleteDrawable.intrinsicWidth
         intrinsicHeight = deleteDrawable.intrinsicHeight
+        marginTop = mContext.resources.getDimension(R.dimen.margin_top_card_delete).toInt()
+        heightCardMovie = mContext.resources.getDimension(R.dimen.height_card_movies).toInt()
     }
 
     override fun getMovementFlags(@NonNull recyclerView: RecyclerView, @NonNull viewHolder: RecyclerView.ViewHolder): Int {
@@ -54,17 +60,17 @@ abstract class SwipeToDeleteCallback internal constructor(internal var mContext:
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
 
         val itemView = viewHolder.itemView
-        val itemHeight = itemView.getHeight()
+        val itemHeight = itemView.height
 
         val isCancelled = dX == 0f && !isCurrentlyActive
 
         if (isCancelled) {
             clearCanvas(
                 c,
-                itemView.getRight() + dX,
-                itemView.getTop().toFloat(),
-                itemView.getRight().toFloat(),
-                itemView.getBottom().toFloat()
+                itemView.right + dX,
+                itemView.top.toFloat(),
+                itemView.right.toFloat(),
+                itemView.bottom.toFloat()
             )
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             return
@@ -72,17 +78,17 @@ abstract class SwipeToDeleteCallback internal constructor(internal var mContext:
 
         mBackground.color = backgroundColor
         mBackground.setBounds(
-            itemView.getRight() + dX.toInt(),
-            itemView.getTop(),
-            itemView.getRight(),
-            itemView.getBottom()
+            itemView.right + dX.toInt(),
+            itemView.top + marginTop,
+            itemView.right,
+            itemView.bottom
         )
         mBackground.draw(c)
 
-        val deleteIconTop = itemView.getTop() + (itemHeight - intrinsicHeight) / 2
-        val deleteIconMargin = (itemHeight - intrinsicHeight) / 2
-        val deleteIconLeft = itemView.getRight() - deleteIconMargin - intrinsicWidth
-        val deleteIconRight = itemView.getRight() - deleteIconMargin
+        val deleteIconTop = itemView.top + (itemHeight - heightCardMovie / 2) - (marginTop * 2)
+        val deleteIconMargin = (itemHeight - intrinsicHeight) / 4
+        val deleteIconLeft = itemView.right - deleteIconMargin - intrinsicWidth
+        val deleteIconRight = itemView.right - deleteIconMargin
         val deleteIconBottom = deleteIconTop + intrinsicHeight
 
 

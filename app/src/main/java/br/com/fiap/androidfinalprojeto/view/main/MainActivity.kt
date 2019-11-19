@@ -1,5 +1,6 @@
 package br.com.fiap.androidfinalprojeto.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -11,6 +12,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import br.com.fiap.androidfinalprojeto.R
+import kotlinx.android.synthetic.main.all_movies_recyclerview.*
 
 class MainActivity : AppCompatActivity() {
 

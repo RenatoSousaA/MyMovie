@@ -1,12 +1,15 @@
 package br.com.fiap.androidfinalprojeto.view.main.ui.all_movie
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.androidfinalprojeto.R
 import br.com.fiap.androidfinalprojeto.room.model.Movie
+import java.text.SimpleDateFormat
 
 
 class AllMoviesListAdapter internal constructor(val father: AllMoviesFragment) : RecyclerView.Adapter<AllMoviesListAdapter.AllMoviesViewHolder>() {
@@ -17,6 +20,8 @@ class AllMoviesListAdapter internal constructor(val father: AllMoviesFragment) :
     inner class AllMoviesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //Adaptação implementada aqui
         val movieName: TextView = itemView.findViewById(R.id.amrvMovieName)
+        val movieRating: TextView = itemView.findViewById(R.id.movieRating)
+        val btnShare: Button = itemView.findViewById(R.id.btnShared)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AllMoviesViewHolder {
@@ -28,11 +33,24 @@ class AllMoviesListAdapter internal constructor(val father: AllMoviesFragment) :
 
         val movie = movies[position]
 
-        holder.movieName.text = movie.name
+        var name = movie.name
+        var rating = movie.score.toString()
+        var description = movie.description
+
+        holder.movieName.text = name
+        holder.movieRating.text = rating
 
         holder.itemView.setOnClickListener {
             father.openMovieToEdit(movie.id)
         }
+
+        holder.btnShare.setOnClickListener(View.OnClickListener {
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.putExtra(
+                Intent.EXTRA_TEXT, "Hi, I watched $name and rated it at $rating \n\nDescription: $description")
+            intent.type = "text/plain"
+            father.context?.startActivity(Intent.createChooser(intent, "Send To"))
+        })
 
     }
 
