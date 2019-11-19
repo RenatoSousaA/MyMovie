@@ -60,4 +60,5 @@
     <string name="movie_saved">Movie saved!</string>
     <string name="movie_was_removed">Movie was removed!</string>
     <string name="undo">UNDO</string>
+    <string name="fiap_phone_call">FIAP Phone Call</string>
 </resources>
