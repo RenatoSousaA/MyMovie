@@ -1,10 +1,13 @@
 package br.com.fiap.androidfinalprojeto.view.main.ui.all_movie
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -15,10 +18,15 @@ import br.com.fiap.androidfinalprojeto.view.main.ui.movie.MovieFragment
 import br.com.fiap.androidfinalprojeto.view.main.ui.movie.MovieViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 import androidx.recyclerview.widget.ItemTouchHelper
+import br.com.fiap.androidfinalprojeto.util.EditTextUtil.Companion.validate
 import com.google.android.material.snackbar.Snackbar
 import br.com.fiap.androidfinalprojeto.util.SwipeToDeleteCallback
 import br.com.fiap.androidfinalprojeto.view.main.MainActivity
 import kotlinx.android.synthetic.main.all_movies_recyclerview.*
+import kotlinx.android.synthetic.main.all_movies_recyclerview.view.*
+import kotlinx.android.synthetic.main.fragment_all_movies.view.*
+import java.lang.Exception
+import java.util.*
 
 class AllMoviesFragment : Fragment() {
 
@@ -69,7 +77,7 @@ class AllMoviesFragment : Fragment() {
 
     }
 
-    private fun enableSwipeToDeleteAndUndo(recyclerview: RecyclerView ) {
+    private fun enableSwipeToDeleteAndUndo(recyclerview: RecyclerView) {
 
         val swipeToDeleteCallback = object : SwipeToDeleteCallback(activity?.baseContext!!) {
 
@@ -80,7 +88,7 @@ class AllMoviesFragment : Fragment() {
                 val movie = adapter.getMovies().get(position)
                 movieViewModel.delete(movie)
 
-                val snackbar = Snackbar.make(recyclerview, R.string.movie_was_removed,Snackbar.LENGTH_LONG)
+                val snackbar = Snackbar.make(recyclerview, R.string.movie_was_removed, Snackbar.LENGTH_LONG)
                 snackbar.setAction(R.string.undo) {
                     movieViewModel.insert(movie)
                     recyclerview.scrollToPosition(position)
