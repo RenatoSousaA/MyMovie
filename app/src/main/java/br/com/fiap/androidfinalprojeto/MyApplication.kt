@@ -28,5 +28,6 @@ class MyApplication : Application() {
                 dbModule
             ))
         }
+
     }
 }

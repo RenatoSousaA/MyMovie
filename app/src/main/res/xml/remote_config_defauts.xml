@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<defaultsMap>
+    <entry>
+        <key>subtitle_navigation</key>
+        <value>Your movies in one place</value>
+    </entry>
+    <entry>
+        <key>title_navigation</key>
+        <value>My Movie</value>
+    </entry>
+</defaultsMap>
