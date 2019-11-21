@@ -1,14 +1,17 @@
 # MyMovie 
 
 DESENVOLVIMENTO DE APLICAÇÕES EM JAVA E KOTLIN
-#Trabalho de conclusão de módulo
-#Professor Heider Lopes
-#Turma 18mob
+
+Trabalho de conclusão de módulo
+
+Professor Heider Lopes
+
+Turma 18mob
 
 ## Autores
-#Adriano Lourenço da Conceição - RM 335182
-#Renato - RM
-#Rodrigo
+#### Adriano Lourenço da Conceição - RM 335182
+#### Renato - RM
+#### Rodrigo
 
 ## Requisitos atendidos
 
