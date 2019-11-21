@@ -9,7 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.fiap.androidfinalprojeto.R
 import br.com.fiap.androidfinalprojeto.room.model.Movie
-import java.text.SimpleDateFormat
+import br.com.fiap.androidfinalprojeto.util.ResourceStringUtil.Companion.enforceGetString
+
 
 
 class AllMoviesListAdapter internal constructor(val father: AllMoviesFragment) : RecyclerView.Adapter<AllMoviesListAdapter.AllMoviesViewHolder>() {
@@ -47,9 +48,9 @@ class AllMoviesListAdapter internal constructor(val father: AllMoviesFragment) :
         holder.btnShare.setOnClickListener(View.OnClickListener {
             val intent = Intent(Intent.ACTION_SEND)
             intent.putExtra(
-                Intent.EXTRA_TEXT, "Hi, I watched $name and rated it at $rating \n\nDescription: $description")
+                Intent.EXTRA_TEXT,  R.string.share_msg.enforceGetString(father.activity).replace("{name}",name).replace("{rating}",rating).replace("{description}", description))
             intent.type = "text/plain"
-            father.context?.startActivity(Intent.createChooser(intent, "Send To"))
+            father.context?.startActivity(Intent.createChooser(intent, R.string.send_to.enforceGetString(father.activity)))
         })
 
     }

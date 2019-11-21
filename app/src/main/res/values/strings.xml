@@ -51,7 +51,7 @@
     <string name="movie_category">Movie category</string>
     <string name="movie_name">Movie name</string>
     <string name="movie_description">Movie description</string>
-    <string name="movie_plataform_watching">Movie plataform watching</string>
+    <string name="movie_plataform_watching">Movie platform watching</string>
     <string name="label_confirm_password">Confirm password</string>
     <string name="passwords_do_not_match">Passwords do not match!</string>
     <string name="signup_success">Signup success!</string>
@@ -61,4 +61,7 @@
     <string name="movie_was_removed">Movie was removed!</string>
     <string name="undo">UNDO</string>
     <string name="fiap_phone_call">FIAP Phone Call</string>
+    <string name="i_watched">I watched?</string>
+    <string name="send_to">Send To</string>
+    <string name="share_msg">Hi, I watched {name} and rated it at {rating} \\n\\nDescription: {description}</string>
 </resources>

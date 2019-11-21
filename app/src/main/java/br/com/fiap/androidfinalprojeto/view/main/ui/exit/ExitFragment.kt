@@ -43,5 +43,8 @@ class ExitFragment : Fragment() {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)//Fecha todas as activities ativas e coloca esta no lugar
         startActivity(intent)
 
+        //Evita voltar um nivel
+        activity?.finish()
+
     }
 }
