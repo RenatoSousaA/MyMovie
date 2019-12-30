@@ -34,6 +34,8 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_maps.*
+import java.net.URI
 import java.util.*
 import java.util.jar.Manifest
 
@@ -44,10 +46,6 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var locationManager: LocationManager
     private lateinit var locationListener: LocationListener
-
-    fun MainBranchFragment() {
-        // Required empty public constructor
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -64,13 +62,59 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         return root
     }
 
+    override fun onResume() {
+        super.onResume()
+        btnMaps.setOnClickListener {
+            val key = "cinema"
+            val geo = "geo:0,0?q=$key&z=12"
+            val geoURI = Uri.parse(geo)
+            val intent = Intent( Intent.ACTION_VIEW, geoURI)
+            intent.setPackage("com.google.android.apps.maps")
+            startActivity(intent)
+        }
+    }
+
+    @SuppressLint("MissingPermission")
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        val geocoder = Geocoder(activity?.applicationContext, Locale.getDefault())
 
-        val UCA = LatLng(-23.5637479, -46.652917)
-        val cine = LatLng(-23.5634694, -46.6548527)
+        locationManager = activity?.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+        initLocationListener()
+        requestLocationUpdates()
+
+        val long = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).longitude
+        val lati = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).latitude
+
+        val UCA = LatLng(lati, long)
+
         mMap?.addMarker(MarkerOptions().position(UCA).title("Você está aqui!"))?.showInfoWindow()
         mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(UCA, 15f))
     }
 
+    @SuppressLint("MissingPermission")
+    private fun requestLocationUpdates() {
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, locationListener)
+    }
+
+    private fun initLocationListener() {
+        locationListener = object : LocationListener {
+            override fun onLocationChanged(location: Location?) {
+
+            }
+
+            override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+
+            }
+
+            override fun onProviderEnabled(provider: String?) {
+
+            }
+
+            override fun onProviderDisabled(provider: String?) {
+
+            }
+        }
+    }
 }
