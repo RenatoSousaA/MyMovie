@@ -12,32 +12,30 @@
             tools:layout="@layout/fragment_home" />
 
     <fragment
-            android:id="@+id/nav_gallery"
-            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.gallery.GalleryFragment"
-            android:label="@string/menu_gallery"
-            tools:layout="@layout/fragment_gallery" />
+            android:id="@+id/nav_new_movie"
+            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.movie.MovieFragment"
+            android:label="@string/menu_new_movie"
+    />
 
     <fragment
-            android:id="@+id/nav_slideshow"
-            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.slideshow.SlideshowFragment"
-            android:label="@string/menu_slideshow"
-            tools:layout="@layout/fragment_slideshow" />
+            android:id="@+id/nav_maps"
+            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.maps.MapsFragment"
+            android:label="@string/menu_maps"
+            tools:layout="@layout/fragment_maps" />
 
     <fragment
-            android:id="@+id/nav_tools"
-            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.tools.ToolsFragment"
-            android:label="@string/menu_tools"
-            tools:layout="@layout/fragment_tools" />
+            android:id="@+id/nav_all_movies"
+            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.all_movie.AllMoviesFragment"
+            android:label="@string/menu_all_movies"
+            tools:layout="@layout/fragment_all_movies" />
 
     <fragment
-            android:id="@+id/nav_share"
-            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.share.ShareFragment"
-            android:label="@string/menu_share"
-            tools:layout="@layout/fragment_share" />
+            android:id="@+id/nav_about"
+            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.about.AboutFragment"
+            android:label="@string/menu_about"
+            tools:layout="@layout/fragment_about" />
+    <fragment android:id="@+id/nav_sair"
+              android:name="br.com.fiap.androidfinalprojeto.view.main.ui.exit.ExitFragment"
+              android:label="ExitFragment"/>
 
-    <fragment
-            android:id="@+id/nav_send"
-            android:name="br.com.fiap.androidfinalprojeto.view.main.ui.send.SendFragment"
-            android:label="@string/menu_send"
-            tools:layout="@layout/fragment_send" />
 </navigation>

@@ -7,6 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 //Usado em dependencies
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 29
@@ -25,6 +26,16 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    flavorDimensions "androidfinalprojeto"
+    productFlavors {
+        regular {
+        }
+        blue {
+            applicationIdSuffix ".blue"
+            versionCode 1
+            versionName "1.0.0"
+        }
+    }
 }
 
 /*
@@ -35,6 +46,12 @@ kotlin {
     }
 }
 */
+
+repositories {
+    maven {
+        url "file:${rootProject.projectDir}/Utilities/maven_repo"
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -52,6 +69,11 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.0.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
+
+    implementation 'com.google.firebase:firebase-firestore:17.1.2'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    implementation 'com.google.firebase:firebase-config:19.0.0'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
@@ -87,4 +109,31 @@ dependencies {
     // MD5, seria usado para gerar Hash do password
     implementation 'commons-codec:commons-codec:1.9'
 
+    //Biblioteca para adicionar ler QRCode
+    implementation "me.dm7.barcodescanner:zxing:1.9.13"
+
+    //Biblioteca para adicionar lista performatica ao aplicativo
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+
+    //Biblioteca para adicionar cards ao aplicativo
+    implementation 'androidx.cardview:cardview:1.0.0'
+
+    // Check for v11.4.2 or higher
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+
+    // Add Analytics
+    implementation 'com.google.firebase:firebase-analytics:17.2.0'
+
+    // Add dependency
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
+
+    // Maps
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    // Del and Undo RecyclerView
+    //noinspection GradleCompatible
+    implementation 'com.android.support:design:28.0.0-rc01'
+
+    implementation 'br.com.fiap:Utilities:0.0.1'
 }
