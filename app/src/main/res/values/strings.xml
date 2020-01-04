@@ -64,4 +64,5 @@
     <string name="i_watched">I watched?</string>
     <string name="send_to">Send To</string>
     <string name="share_msg">Hi, I watched {name} and rated it at {rating} \\n\\nDescription: {description}</string>
+    <string name="open_nearby_theaters">Open Nearby Theaters</string>
 </resources>
