@@ -66,4 +66,5 @@
     <string name="menu_system">Sistema</string>
     <string name="send_to">Enviar para</string>
     <string name="share_msg">Oi, Eu assisti {name} e dei {rating} ponto(s) \\n\\nDescrição: {description}</string>
+    <string name="open_nearby_theaters">Abrir cinemas próximos</string>
 </resources>
